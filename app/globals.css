@@ -1,26 +1,449 @@
+
 @import "tailwindcss";
 
+/* =========================
+   FRIVOLT ORIGINALS
+========================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #f5f5f5;
+  --accent: #e50914;
+  --muted: #a1a1aa;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* NAVBAR */
+
+.navbar {
+  width: 100%;
+  min-height: 90px;
+  padding: 15px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #050505;
+  border-bottom: 1px solid #191919;
+}
+
+.logo {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.navbar nav a {
+  font-size: 15px;
+  color: #d4d4d8;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover {
+  color: var(--accent);
+}
+
+/* HERO */
+
+.hero {
+  min-height: 470px;
+  padding: 75px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background:
+    radial-gradient(
+      ellipse at 75% 50%,
+      rgba(229, 9, 20, 0.13),
+      transparent 55%
+    ),
+    #050505;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.eyebrow {
+  color: #bdbdc4;
+  font-size: 13px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 7vw, 86px);
+  font-weight: 900;
+  letter-spacing: -4px;
+  line-height: 1.05;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.description {
+  max-width: 520px;
+  margin-top: 22px;
+  color: #b5b5bd;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 28px;
+  border-radius: 7px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #ff1b27;
+  transform: translateY(-3px);
+}
+
+.secondary-btn {
+  border: 1px solid #777;
+  color: white;
+}
+
+.secondary-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hero-emblem img {
+  width: 330px;
+  height: 330px;
+  object-fit: contain;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+}
+
+/* GAMES */
+
+.games {
+  padding: 35px 7% 75px;
+}
+
+.games h2,
+.about h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.games h2::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 28px;
+  background: var(--accent);
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.game-card {
+  min-height: 190px;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 12px;
+  background: #101010;
+  border: 1px solid #292929;
+  transition: 0.3s;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+}
+
+.game-card h3 {
+  font-size: 32px;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.game-card p {
+  margin-top: 12px;
+  color: #b5b5bd;
+}
+
+.dead-drive {
+  border-color: #4b9e17;
+  background:
+    radial-gradient(circle at 85% 50%, #173a0d, transparent 60%),
+    #101510;
+}
+
+.dead-drive h3 {
+  color: #8cff25;
+}
+
+.coming-soon {
+  display: inline-block;
+  width: fit-content;
+  padding: 6px 12px;
+  border: 1px solid #ff3333;
+  border-radius: 20px;
+  color: #ff4545;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  background: rgba(255, 30, 30, 0.08);
+}
+
+.agniv {
+  border-color: #9e1717;
+  background:
+    radial-gradient(circle at 85% 50%, #4b0909, transparent 60%),
+    #160c0c;
+}
+
+.agniv h3 {
+  color: #ff3333;
+}
+
+
+
+/* ABOUT STUDIO */
+
+.about {
+  padding: 85px 7%;
+  background: #0c0c0c;
+  text-align: center;
+}
+
+.about-content {
+  max-width: 1100px;
+  width:100%;
+  margin: auto;
+}
+
+.about-label {
+  color: #e50914;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.about h2 {
+  white-space: nowrap;
+  font-size: clamp(26px, 3.2vw, 46px);
+}
+
+.about h2 span {
+  color: #e50914;
+}
+
+.about-content > p {
+  color: #aaa;
+  font-size: 16px;
+  line-height: 1.9;
+  margin: 15px auto;
+}
+
+.about-philosophy {
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #333;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding: 60px 6%;
+  }
+
+  .about-content > p {
+    font-size: 14px;
+  }
+
+  .about-philosophy {
+    font-size: 16px;
+  }
+}
+/* FRIVOLT PROFESSIONAL FOOTER */
+
+.site-footer {
+  background: #080808;
+  border-top: 1px solid #292929;
+  padding: 65px 7% 25px;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 0.7fr;
+  gap: 55px;
+  align-items: start;
+  padding-bottom: 55px;
+}
+
+.footer-brand h2 {
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.footer-brand h2 span {
+  color: #e50914;
+}
+
+.footer-brand p {
+  max-width: 390px;
+  margin-top: 18px;
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.footer-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 25px;
+}
+
+.footer-info span {
+  display: block;
+  color: #888;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 9px;
+}
+
+.footer-info p {
+  color: #eee;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.footer-connect h3 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.footer-connect a {
+  display: block;
+  color: #aaa;
+  font-size: 15px;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.footer-connect a:hover {
+  color: #e50914;
+}
+
+.footer-bottom {
+  border-top: 1px solid #292929;
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: #888;
+  font-size: 13px;
+}
+
+.footer-bottom div {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-bottom a:hover {
+  color: #e50914;
+}
+
+/* TABLET & MOBILE */
+
+@media (max-width: 850px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 550px) {
+  .site-footer {
+    padding: 45px 6% 22px;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-info {
+    gap: 25px 15px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bottom div {
+    flex-wrap: wrap;
+  }
 }
