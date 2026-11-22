@@ -138,13 +138,13 @@ export default function Home() {
         <div className="footer-connect">
           <h3>CONNECT WITH US</h3>
           <a
-            href="https://www.instagram.com/YOUR_HANDLE/"
+            href="https://www.instagram.com/frivoltoriginals/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Instagram ↗
           </a>
-          <a href="mailto:YOUR_EMAIL">
+          <a href="mailto:frivoltoriginals@gmail.com">
             Email ↗
           </a>
         </div>
